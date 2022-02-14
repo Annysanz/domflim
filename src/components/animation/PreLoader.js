@@ -34,7 +34,7 @@ function PreLoader() {
           {!loading ? (
 
             <div className="box">
-              <span>loading...</span>
+              <img src={ dom } />
                <div className="half-spinner"></div>
             </div>
         
