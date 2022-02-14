@@ -1,0 +1,64 @@
+.box{
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    margin: auto;
+    flex-direction: column;
+  
+  }
+  
+  .box img {  
+    animation: fade 1s linear 0s infinite;
+    padding-left: 16%;
+    padding-top: 22%;
+  }
+  
+  .half-spinner {
+    width: 50px;
+    height: 50px;
+
+    animation: spin 0.5s linear 0s infinite;
+  }
+ 
+  
+  .domflim {
+     height: auto;
+     width: 50%;
+     margin-left: 30%;
+     margin-top: 15%;
+     padding: 0;
+  }
+
+  .legend {
+      display: flex;
+      justify-content: center;
+      color: teal;
+  }
+
+
+ 
+  @keyframes spin {
+    from {
+      transform: rotate(0);
+      border: 3px solid #03fc4e;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+    }
+    to {
+      transform: rotate(360deg);
+      border:  orange;
+     
+    }
+  
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
