@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./fireStyle.css";
 import Button from "../button/Button";
@@ -11,15 +10,12 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "./firebase.js";
-import Arrow from "./Stars";
-
 
 export function Base() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-
   const [user, setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
@@ -58,7 +54,6 @@ export function Base() {
 
   return (
     <>
-       <Arrow/>
       <div className="login-wrap">
         <div className="base">
           <h3 className="titles"> Registrar Usuario </h3>
