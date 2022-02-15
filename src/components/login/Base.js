@@ -1,13 +1,13 @@
-import React from 'react';
-import './fireStyle.css';
-
-
+import React from "react";
+import "./fireStyle.css";
+import Button from "../button/Button";
+import Input from "../input/Input";
 import { useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  signOut,
 } from "firebase/auth";
 import { auth } from "./firebase.js";
 
@@ -55,49 +55,55 @@ export function Base() {
 
   return (
     <>
-
-
-      <div className="log-box">
-        <div>
+      <div className="base">
+        <div className="base">
           <h3 className="titles"> Registrar Usuario </h3>
-          <input
+          <Input
             placeholder="Email..."
             onChange={(event) => {
               setRegisterEmail(event.target.value);
-            }} />
-          <input
+            }}
+          />
+          <Input
             placeholder="Password..."
             onChange={(event) => {
               setRegisterPassword(event.target.value);
-            }} />
+            }}
+          />
           <br />
-          <button onClick={register} className="lol"> Create User</button>
+          <Button onClick={register} className="small">
+            Crear Usuario
+          </Button>
         </div>
 
         <div>
-          <h3 className="titles"> Entrar </h3>
-          <input
+          <h3 className="titles">Entrar</h3>
+          <Input
             placeholder="Email..."
             onChange={(event) => {
               setLoginEmail(event.target.value);
-            }} />
-          <input
+            }}
+          />
+          <Input
             placeholder="Password..."
             onChange={(event) => {
               setLoginPassword(event.target.value);
-            }} />
+            }}
+          />
           <br />
-          <button onClick={login}> Login</button>
+          <Button onClick={login} className="small">
+            Login
+          </Button>
         </div>
 
-        <h4 className="titles"> Usuario Actual :</h4>
+        <h4 className="titles">Usuario Actual:</h4>
         {user?.email}
 
-        <button onClick={logout} className="lol"> Sign Out </button>
-
+        <Button onClick={logout} className="small">
+          Salir
+        </Button>
       </div>
-
     </>
   );
 }
- export default Base;
+export default Base;
