@@ -32,7 +32,6 @@ function App() {
                         <>
                             <Header {...props} />
                             <Routes />
-
                             <Footer />
                         </>
                     )} />

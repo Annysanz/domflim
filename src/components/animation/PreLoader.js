@@ -1,6 +1,9 @@
+
 import React, {useEffect, useState } from "react";
 import "./PreLoader.css";
 import dom from './dom.png';
+
+
 
 function PreLoader() {
     const [data, setData] = useState([]);
@@ -22,7 +25,7 @@ function PreLoader() {
 
          });
 
-      }, 1500);
+      }, 1000);
 
     }, []);
    
