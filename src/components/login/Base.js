@@ -54,8 +54,8 @@ export function Base() {
 
   return (
     <>
-      <div className="login-wrap">
-        <div className="base">
+      <div className="wrapper fadeInDown">
+        <div>
           <h3 className="titles"> Registrar Usuario </h3>
           <Input
             placeholder="Email..."
@@ -70,7 +70,7 @@ export function Base() {
             }}
           />
           <br />
-          <Button onClick={register} className="small">
+          <Button onClick={register} className="login-style">
             Crear Usuario
           </Button>
         </div>
@@ -90,15 +90,13 @@ export function Base() {
             }}
           />
           <br />
-          <Button onClick={login} className="small">
+          <Button onClick={login} className="login-style">
             Login
           </Button>
         </div>
-
         <h4 className="titles">Usuario Actual:</h4>
         {user?.email}
-
-        <Button onClick={logout} className="small">
+        <Button onClick={logout} className="login-style">
           Salir
         </Button>
       </div>
