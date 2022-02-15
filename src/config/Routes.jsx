@@ -5,27 +5,30 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
+import Base from '../components/login/Base'
 
-const Routes = () => {
+
+function Routes() {
     return (
         <Switch>
             <Route
                 path='/:category/search/:keyword'
-                component={Catalog}
-            />
+                component={Catalog} />
             <Route
                 path='/:category/:id'
-                component={Detail}
-            />
+                component={Detail} />
             <Route
                 path='/:category'
-                component={Catalog}
-            />
+                component={Catalog} />
             <Route
                 path='/'
                 exact
-                component={Home}
-            />
+                component={Home} />
+            <Route
+                path='/Logged'
+                exact/>
+                <Base/>
+            <Route/>    
         </Switch>
     );
 }

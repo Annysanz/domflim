@@ -8,9 +8,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
+import Base from './components/login/Base';
 
 import Routes from './config/Routes';
 import PreLoader from './components/animation/PreLoader';
+
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -30,9 +32,11 @@ function App() {
                     :
             
             <Route render={props => (
-                <>
+                <>  
                     <Header {...props}/>
+                    
                     <Routes/>
+                    <Base/>
                     <Footer/>
                 </>
             )}/>

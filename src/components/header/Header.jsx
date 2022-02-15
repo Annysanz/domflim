@@ -6,6 +6,8 @@ import './header.scss';
 
 import logo from '../../assets/domflim.png';
 
+import Base from '../login/Base.js'
+
 const headerNav = [
     {
         display: 'Inicio',
@@ -18,6 +20,10 @@ const headerNav = [
     {
         display: 'Series TV ',
         path: '/tv'
+    },
+    {
+        display: 'Login',
+        path: '/Logged'
     }
 ];
 
@@ -49,6 +55,7 @@ const Header = () => {
                     <img src={logo} alt="" />
                     <Link to="/">DomFlim</Link>
                 </div>
+
                 <ul className="header__nav">
                     {
                         headerNav.map((e, i) => (
