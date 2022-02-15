@@ -1,3 +1,4 @@
+
 .login-style {
   margin-top: 20px;
   border-width: 2px;
@@ -11,8 +12,17 @@
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 170px;
+  padding: 150px;
+  margin-top: 10%;
 }
+
+.loginer {
+  background-color: hsl(180, 40%, 15%);
+  padding: 10%;
+  border-radius: 5%;
+}
+
+
 
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
