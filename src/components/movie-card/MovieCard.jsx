@@ -10,7 +10,6 @@ import { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 const MovieCard = props => {
-
     const item  = props.item;
 
     const link = '/' + category[props.category] + '/' + item.id;

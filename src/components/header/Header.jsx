@@ -6,7 +6,7 @@ import './header.scss';
 
 import logo from '../../assets/domflim.png';
 
-import Base from '../login/Base.js'
+// import Base from '../login/Base.js'
 
 const headerNav = [
     {
@@ -23,7 +23,7 @@ const headerNav = [
     },
     {
         display: 'Login',
-        path: '/Logged'
+        path: '/login'
     }
 ];
 

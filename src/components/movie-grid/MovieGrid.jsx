@@ -19,6 +19,8 @@ const MovieGrid = props => {
     const { keyword } = useParams();
 
     useEffect(() => {
+
+        let isCancelled = false;
         const getList = async () => {
             let response = null;
             if (keyword === undefined) {
@@ -36,10 +38,15 @@ const MovieGrid = props => {
                 }
                 response = await tmdbApi.search(props.category, {params});
             }
+            if (!isCancelled ) {
             setItems(response.results);
             setTotalPage(response.total_pages);
+            } 
         }
         getList();
+        return () => {
+            isCancelled = true;
+        }
     }, [props.category, keyword]);
 
     const loadMore = async () => {

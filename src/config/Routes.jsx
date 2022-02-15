@@ -5,12 +5,16 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
-import Base from '../components/login/Base'
+import Base from '../components/login/Base';
 
 
 function Routes() {
     return (
         <Switch>
+            <Route
+                path='/login'
+                component={Base}
+                />
             <Route
                 path='/:category/search/:keyword'
                 component={Catalog} />
@@ -20,15 +24,13 @@ function Routes() {
             <Route
                 path='/:category'
                 component={Catalog} />
+
+
             <Route
                 path='/'
-                exact
                 component={Home} />
-            <Route
-                path='/Logged'
-                exact/>
-                <Base/>
-            <Route/>    
+                
+                
         </Switch>
     );
 }
