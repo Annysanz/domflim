@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./fireStyle.css";
 import Button from "../button/Button";
 import Input from "../input/Input";
-import { useState } from "react";
-
 
 import {
   createUserWithEmailAndPassword,
@@ -14,19 +12,27 @@ import {
 import { auth } from "./firebase.js";
 import Particles from "react-tsparticles";
 
+
+
 export function Base() {
+  const [userText,setUserText] = useState('');
+  const userName = () => {
+  const userAuth = FirebaseAuth.getInstance().getCurrentUser();
   
+ console.log(userAuth.getDisplayName());
+
+ }
   const particlesInit = (main) => {
     console.log(main);
-
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   };
+ 
 
   const particlesLoaded = (container) => {
     console.log(container);
   };
   
-  
+
   
   
   const [registerEmail, setRegisterEmail] = useState("");
@@ -42,27 +48,30 @@ export function Base() {
 
   const register = async () => {
     try {
-      const user = await createUserWithEmailAndPassword(
+      const userRegister = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
-      console.log(user);
+      alert(userRegister);
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   };
 
   const login = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
+      const userLogin = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      console.log(user);
+      userName();
+      /*console.log(user);*/
+      alert(`You are logged in`);
     } catch (error) {
-      console.log(error.message);
+  
+      alert(error.message);
     }
   };
 
@@ -72,16 +81,15 @@ export function Base() {
 
   return (
     <>
-      <div className="wrapper fadeInDown">
 
-      <Particles
+<Particles
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
       options={{
         background: {
           color: {
-            value: 'oranges',
+            value: 'orange',
           },
         },
         fpsLimit: 120,
@@ -156,18 +164,19 @@ export function Base() {
         detectRetina: true,
       }}
     />
+      <div className="wrapper fadeInDown">
+    
        <div className="loginer">    
         <div>
           <h3 className="titles"> Registrar Usuario </h3>
           <Input
-            id="email"
             placeholder="Email..."
             onChange={(event) => {
               setRegisterEmail(event.target.value);
             }}
           />
           <Input
-             id="password"
+            type="password"
             placeholder="Password..."
             onChange={(event) => {
               setRegisterPassword(event.target.value);
@@ -182,14 +191,14 @@ export function Base() {
         <div>
           <h3 className="titles">Entrar</h3>
           <Input
-            id='email'
+         
             placeholder="Email..."
             onChange={(event) => {
               setLoginEmail(event.target.value);
             }}
           />
           <Input
-            id='password'
+            type="password"
             placeholder="Password..."
             onChange={(event) => {
               setLoginPassword(event.target.value);
