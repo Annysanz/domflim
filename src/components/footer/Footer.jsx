@@ -16,20 +16,14 @@ const Footer = () => {
         </div>
         <div className="footer__content__menus">
           <div className="footer__content__menu">
-            <Link to="/">Inicio</Link>
-            <Link to="/">Sobre Nosotros</Link>
-            <Link to="/">Término de los servicios</Link>
-            <Link to="/">Contacto</Link>
+            <Link to="/About">Sobre Nosotros</Link>
           </div>
           <div className="footer__content__menu">
-            <Link to="/">Vivir</Link>
-            <Link to="/">Premium</Link>
-            <Link to="/">Politicas de Privacidad</Link>
+            <Link to="/Politicas">Políticas de Privacidad</Link>
+            <Link to="/Contact">Contacto</Link>
           </div>
           <div className="footer__content__menu">
-            <Link to="/">Usted tiene que ver</Link>
-            <Link to="/">Lanzamiento reciente</Link>
-            <Link to="/">Superior IMDB</Link>
+            <Link to="/Terminos">Término de usos</Link>
           </div>
         </div>
       </div>
