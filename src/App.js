@@ -11,6 +11,8 @@ import PreLoader from "./components/animation/PreLoader";
 function App() {
   const [loading, setLoading] = useState(false);
 
+
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {

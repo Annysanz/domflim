@@ -26,7 +26,6 @@ export function Base() {
     console.log(container);
   };
   
-
   
   
   const [registerEmail, setRegisterEmail] = useState("");
@@ -54,6 +53,8 @@ export function Base() {
   };
 
   const login = async () => {
+    
+
     try {
       const user = await signInWithEmailAndPassword(
         auth,

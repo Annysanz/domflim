@@ -2,6 +2,14 @@ import React, { useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./header.scss";
 import logo from "../../assets/domflim.png";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { useState } from "react";
+import { auth } from "../login/firebase";
 
 const headerNav = [
   {
@@ -20,15 +28,25 @@ const headerNav = [
     display: "Login",
     path: "/login",
   },
+ 
 ];
 
 const Header = () => {
+  const [user, setUser] = useState({});
   const { pathname } = useLocation();
   const headerRef = useRef(null);
-
+  
   const active = headerNav.findIndex((e) => e.path === pathname);
 
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+
+
+/*
   useEffect(() => {
+    
     const shrinkHeader = () => {
       if (
         document.body.scrollTop > 100 ||
@@ -44,7 +62,7 @@ const Header = () => {
       window.removeEventListener("scroll", shrinkHeader);
     };
   }, []);
-
+*/
   return (
     <div ref={headerRef} className="header">
       <div className="header__wrap container">
@@ -52,13 +70,17 @@ const Header = () => {
           <img src={logo} alt="" />
           <Link to="/">DomFlim</Link>
         </div>
-
+       
+        <p>{user?.email}</p>
+       
         <ul className="header__nav">
           {headerNav.map((e, i) => (
             <li key={i} className={`${i === active ? "active" : ""}`}>
               <Link to={e.path}>{e.display}</Link>
             </li>
-          ))}
+                
+          ))
+          }
         </ul>
       </div>
     </div>
