@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./fireStyle.css";
 import Button from "../button/Button";
 import Input from "../input/Input";
+import { useState } from "react";
 
 import {
   createUserWithEmailAndPassword,
@@ -15,18 +16,11 @@ import Particles from "react-tsparticles";
 
 
 export function Base() {
-  const [userText,setUserText] = useState('');
-  const userName = () => {
-  const userAuth = FirebaseAuth.getInstance().getCurrentUser();
   
- console.log(userAuth.getDisplayName());
-
- }
   const particlesInit = (main) => {
     console.log(main);
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   };
- 
 
   const particlesLoaded = (container) => {
     console.log(container);
@@ -48,12 +42,12 @@ export function Base() {
 
   const register = async () => {
     try {
-      const userRegister = await createUserWithEmailAndPassword(
+      const user = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
       );
-      alert(userRegister);
+      alert(user);
     } catch (error) {
       alert(error.message);
     }
@@ -61,16 +55,14 @@ export function Base() {
 
   const login = async () => {
     try {
-      const userLogin = await signInWithEmailAndPassword(
+      const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      userName();
-      /*console.log(user);*/
       alert(`You are logged in`);
     } catch (error) {
-  
+      console.log(user);
       alert(error.message);
     }
   };
@@ -176,7 +168,7 @@ export function Base() {
             }}
           />
           <Input
-            type="password"
+            type='password'
             placeholder="Password..."
             onChange={(event) => {
               setRegisterPassword(event.target.value);
@@ -198,7 +190,7 @@ export function Base() {
             }}
           />
           <Input
-            type="password"
+            type='password'
             placeholder="Password..."
             onChange={(event) => {
               setLoginPassword(event.target.value);
