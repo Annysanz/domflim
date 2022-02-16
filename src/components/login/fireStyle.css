@@ -1,10 +1,10 @@
-
 .login-style {
   margin-top: 20px;
   border-width: 2px;
   padding: 0.25rem 1.5rem;
   font-size: 1rem;
 }
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -12,18 +12,16 @@
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  margin-top: 10%;
+  margin-top: 60px;
 }
 
 .loginer {
   background-color: hsl(180, 40%, 15%);
-  padding: 5%;
+  padding: 4%;
   border-radius: 5%;
-
+  margin: 45px;
+  text-align: center;
 }
-
-
-
 
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
@@ -59,7 +57,6 @@
     transform: none;
   }
 }
-
 /* Simple CSS3 Fade-in Animation */
 @-webkit-keyframes fadeIn {
   from {
@@ -124,7 +121,6 @@
   -moz-animation-delay: 1s;
   animation-delay: 1s;
 }
-
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
   display: block;
