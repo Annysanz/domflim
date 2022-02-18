@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import "./fireStyle.css";
 import Button from "../button/Button";
@@ -14,10 +13,7 @@ import {
 import { auth } from "./firebase.js";
 import Particles from "react-tsparticles";
 
-
-
 export function Base() {
-  
   const particlesInit = (main) => {
     console.log(main);
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -26,19 +22,16 @@ export function Base() {
   const particlesLoaded = (container) => {
     console.log(container);
   };
-  
-  
-  
+
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState({});
 
-
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  // onAuthStateChanged(auth, (currentUser) => {
+  //   setUser(currentUser);
+  // });
 
   const register = async () => {
     try {
@@ -54,8 +47,6 @@ export function Base() {
   };
 
   const login = async () => {
-    
-
     try {
       const user = await signInWithEmailAndPassword(
         auth,
@@ -68,258 +59,146 @@ export function Base() {
       alert(error.message);
     }
   };
-=======
-// import React from "react";
-// import "./fireStyle.css";
-// import Button from "../button/Button";
-// import Input from "../input/Input";
-// import { useState } from "react";
-// import {
-//   createUserWithEmailAndPassword,
-//   signInWithEmailAndPassword,
-//   onAuthStateChanged,
-//   signOut,
-// } from "firebase/auth";
-// import { auth } from "./firebase.js";
+    const logout = async () => {
+      await signOut(auth);
+    };
 
-// export function Base() {
-//   const [registerEmail, setRegisterEmail] = useState("");
-//   const [registerPassword, setRegisterPassword] = useState("");
-//   const [loginEmail, setLoginEmail] = useState("");
-//   const [loginPassword, setLoginPassword] = useState("");
-//   const [user, setUser] = useState({});
-
-//   onAuthStateChanged(auth, (currentUser) => {
-//     setUser(currentUser);
-//   });
-
-//   const register = async () => {
-//     try {
-//       const user = await createUserWithEmailAndPassword(
-//         auth,
-//         registerEmail,
-//         registerPassword
-//       );
-//       console.log(user);
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   };
-
-//   const login = async () => {
-//     try {
-//       const user = await signInWithEmailAndPassword(
-//         auth,
-//         loginEmail,
-//         loginPassword
-//       );
-//       console.log(user);
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   };
->>>>>>> contact
-
-//   const logout = async () => {
-//     await signOut(auth);
-//   };
-
-<<<<<<< HEAD
   return (
     <>
-
-<Particles
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
-      options={{
-        background: {
-          color: {
-            value: 'orange',
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={{
+          background: {
+            color: {
+              value: "orange",
+            },
           },
-        },
-        fpsLimit: 120,
-        interactivity: {
-          events: {
-            onClick: {
+          fpsLimit: 120,
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+              onHover: {
+                enable: true,
+                mode: "repulse",
+              },
+              resize: true,
+            },
+            modes: {
+              bubble: {
+                distance: 400,
+                duration: 10,
+                opacity: 0.2,
+                size: 40,
+              },
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          particles: {
+            color: {
+              value: "#ffffff",
+            },
+            links: {
+              color: "#ffffff",
+              distance: 150,
+              enable: false,
+              opacity: 0.5,
+              width: 1,
+            },
+            collisions: {
               enable: true,
-              mode: "push",
             },
-            onHover: {
+            move: {
+              direction: "none",
               enable: true,
-              mode: "repulse",
+              outMode: "bounce",
+              random: false,
+              speed: 6,
+              straight: false,
             },
-            resize: true,
-          },
-          modes: {
-            bubble: {
-              distance: 400,
-              duration: 10,
-              opacity: 0.2,
-              size: 40,
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 80,
             },
-            push: {
-              quantity: 4,
+            opacity: {
+              value: 0.5,
             },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
+            shape: {
+              type: "circle",
+            },
+            size: {
+              random: true,
+              value: 5,
             },
           },
-        },
-        particles: {
-          color: {
-            value: "#ffffff",
-          },
-          links: {
-            color: "#ffffff",
-            distance: 150,
-            enable: false,
-            opacity: 0.5,
-            width: 1,
-          },
-          collisions: {
-            enable: true,
-          },
-          move: {
-            direction: "none",
-            enable: true,
-            outMode: "bounce",
-            random: false,
-            speed: 6,
-            straight: false,
-          },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: 0.5,
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            random: true,
-            value: 5,
-          },
-        },
-        detectRetina: true,
-      }}
-    />
+          detectRetina: true,
+        }}
+      />
       <div className="wrapper fadeInDown">
-    
-       <div className="loginer">    
-        <div>
-          <h3 className="titles"> Registrar Usuario </h3>
-          <Input
-            placeholder="Email..."
-            onChange={(event) => {
-              setRegisterEmail(event.target.value);
-            }}
-          />
-          <Input
-            type='password'
-            placeholder="Password..."
-            onChange={(event) => {
-              setRegisterPassword(event.target.value);
-            }}
-          />
-          <br />
-          <Button onClick={register} className="login-style">
-            Crear Usuario
+        <div className="loginer">
+          <div>
+            <h3 className="titles"> Registrar Usuario </h3>
+            <Input
+              placeholder="Email..."
+              onChange={(event) => {
+                setRegisterEmail(event.target.value);
+              }}
+            />
+            <Input
+              type="password"
+              placeholder="Password..."
+              onChange={(event) => {
+                setRegisterPassword(event.target.value);
+              }}
+            />
+            <br />
+            <Button onClick={register} className="login-style">
+              Crear Usuario
+            </Button>
+          </div>
+
+          <div>
+            <h3 className="titles">Entrar</h3>
+            <Input
+              placeholder="Email..."
+              onChange={(event) => {
+                setLoginEmail(event.target.value);
+              }}
+            />
+            <Input
+              type="password"
+              placeholder="Password..."
+              onChange={(event) => {
+                setLoginPassword(event.target.value);
+              }}
+            />
+            <br />
+            <Button onClick={login} className="login-style">
+              Login
+            </Button>
+          </div>
+
+          <h4 className="titles">Usuario Actual:</h4>
+          {user?.email}
+          <Button onClick={logout} className="login-style">
+            Salir
           </Button>
         </div>
-
-        <div>
-          <h3 className="titles">Entrar</h3>
-          <Input
-         
-            placeholder="Email..."
-            onChange={(event) => {
-              setLoginEmail(event.target.value);
-            }}
-          />
-          <Input
-            type='password'
-            placeholder="Password..."
-            onChange={(event) => {
-              setLoginPassword(event.target.value);
-            }}
-          />
-          <br />
-          <Button onClick={login} className="login-style">
-            Login
-          </Button>
-        </div>
-
-        <h4 className="titles">Usuario Actual:</h4>
-        {user?.email}
-        <Button onClick={logout} className="login-style">
-          Salir
-        </Button>
-      </div>
       </div>
     </>
   );
 }
 export default Base;
-=======
-//   return (
-//     <>
-//       <div className="login-wrap">
-//         <div className="base">
-//           <h3 className="titles"> Registrar Usuario </h3>
-//           <Input
-//             placeholder="Email..."
-//             onChange={(event) => {
-//               setRegisterEmail(event.target.value);
-//             }}
-//           />
-//           <Input
-//             placeholder="Password..."
-//             onChange={(event) => {
-//               setRegisterPassword(event.target.value);
-//             }}
-//           />
-//           <br />
-//           <Button onClick={register} className="small">
-//             Crear Usuario
-//           </Button>
-//         </div>
-
-//         <div>
-//           <h3 className="titles">Entrar</h3>
-//           <Input
-//             placeholder="Email..."
-//             onChange={(event) => {
-//               setLoginEmail(event.target.value);
-//             }}
-//           />
-//           <Input
-//             placeholder="Password..."
-//             onChange={(event) => {
-//               setLoginPassword(event.target.value);
-//             }}
-//           />
-//           <br />
-//           <Button onClick={login} className="small">
-//             Login
-//           </Button>
-//         </div>
-
-//         <h4 className="titles">Usuario Actual:</h4>
-//         {user?.email}
-
-//         <Button onClick={logout} className="small">
-//           Salir
-//         </Button>
-//       </div>
-//     </>
-//   );
-// }
-// export default Base;
->>>>>>> contact
